@@ -44,7 +44,6 @@ public class UsersRestCall {
         HttpEntity<?> entity = new HttpEntity<>(headers);
         UsersResponse response = new UsersResponse();
         log.info("llamada al metodo obtenerDatos URL:{} ",builder.build());
-
         try {
             response = restTemplateApiUsers.exchange(
                             builder.toUriString(),
@@ -53,6 +52,7 @@ public class UsersRestCall {
                             UsersResponse.class)
                     .getBody();
         } catch (Exception e) {
+
             log.info("Error al obtener los datos: {}", e.getMessage());
         }
 
